@@ -1,0 +1,28 @@
+{
+  "name": "api-weaver",
+  "version": "1.0.0",
+  "description": "Automated API Generator for Web & Mobile Applications",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "install-frontend": "cd frontend && npm install",
+    "dev": "concurrently \"python app.py\" \"cd frontend && npm start\"",
+    "test": "pytest",
+    "lint": "flake8 .",
+    "format": "black ."
+  },
+  "keywords": [
+    "api",
+    "generator",
+    "crud",
+    "automation",
+    "low-code",
+    "no-code"
+  ],
+  "author": "API Weaver Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

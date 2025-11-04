@@ -1,0 +1,151 @@
+What is API Weaver?
+
+API Weaver is a low-code/no-code tool that automatically generates REST APIs from your database schema. It saves developers hours of writing repetitive CRUD operations by automatically creating:
+✅ Complete CRUD APIs (Create, Read, Update, Delete)
+✅ JWT Authentication with user management
+✅ Swagger Documentation for API testing
+✅ Multiple Framework Support (Flask, FastAPI, Express.js)
+✅ Database Integration (MySQL, MongoDB, PostgreSQL)
+✅ One-click Export and deployment
+
+Installation & Setup
+Prerequisites
+Python 3.8+
+Node.js 16+
+MySQL or MongoDB (optional, for testing)
+
+Step 1: Clone and Install Backend Dependencies
+
+# Navigate to project directory
+cd "E:\API Weaver"
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+Step 2: Install Frontend Dependencies
+
+# Install frontend dependencies
+cd frontend
+npm install
+cd ..
+
+Step 3: Environment Setup
+
+# Copy environment template
+copy env.example .env
+
+# Edit .env file with your configurations (optional)
+# Default settings work for local development
+
+Step 4: Run the Application
+Option A: Run Both Together (Recommended)
+
+# Run both backend and frontend simultaneously
+npm run dev
+
+Option B: Run Separately
+
+# Terminal 1 - Backend
+python run.py
+
+# Terminal 2 - Frontend  
+cd frontend
+npm start
+
+Step 5: Access the Application
+
+Frontend: http://localhost:3000
+Backend API: http://localhost:5000
+API Documentation: http://localhost:5000/api/docs
+
+How to Use API Weaver
+
+1. User Registration & Authentication
+First Time Setup:
+Open http://localhost:3000
+Click "Register" to create an account
+
+Fill in your details:
+Username
+Email
+Password
+Role (Admin/Developer/User)
+Login:
+Use your credentials to log in
+JWT tokens are automatically managed
+
+2. Database Connection
+For MySQL:
+Go to "Connect Database" page
+Select "MySQL"
+Enter connection details:
+
+   Host: localhost (or your MySQL server)
+   Port: 3306
+   Username: your_username
+   Password: your_password
+   Database: your_database_name
+
+Click "Test Connection"
+If successful, you'll see available tables
+For MongoDB:
+Select "MongoDB"
+Enter connection details:
+
+   Connection String: mongodb://localhost:27017
+   Database: your_database_name
+
+Test connection to see available collections
+
+3. API Generation Process
+
+Step 1: Select Tables/Collections
+Choose which tables you want to generate APIs for
+You can select multiple tables at once
+
+Step 2: Choose Framework
+Flask (Python) - Recommended for beginners
+FastAPI (Python) - High performance, async support
+Express.js (Node.js) - JavaScript/TypeScript
+
+Step 3: Configure Options
+✅ Include Authentication - Adds JWT auth to your API
+✅ Generate Documentation - Creates Swagger/OpenAPI docs
+✅ Add Validation - Input validation for all endpoints
+
+Step 4: Generate API
+Click "Generate API"
+Wait for processing (usually 10-30 seconds)
+Download the generated project
+
+4. Generated API Features
+Automatic CRUD Endpoints:
+For a table called users, you get:
+GET    /api/users          # Get all users
+GET    /api/users/{id}     # Get user by ID
+POST   /api/users          # Create new user
+PUT    /api/users/{id}     # Update user
+DELETE /api/users/{id}     # Delete user
+
+Authentication Endpoints:
+POST   /api/auth/register  # User registration
+POST   /api/auth/login     # User login
+POST   /api/auth/logout    # User logout
+GET    /api/auth/profile   # Get user profile
+
+Documentation:
+Interactive Swagger UI at /docs
+Postman collection export
+OpenAPI 3.0 specification
+
+5. Project Management
+View Generated Projects:
+Go to "Projects" page
+See all your generated APIs
+Download, edit, or redeploy projects
+Export Options:
+Download ZIP - Complete project with dependencies
+Git Repository - Push to GitHub automatically
+Docker Container - Containerized deployment
+Cloud Deploy - Deploy to Heroku/Render/AWS
+

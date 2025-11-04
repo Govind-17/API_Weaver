@@ -1,0 +1,99 @@
+Example 1: E-commerce API
+Scenario: You have a MySQL database with these tables:
+products (id, name, price, category, stock)
+customers (id, name, email, phone, address)
+orders (id, customer_id, total, status, created_at)
+order_items (id, order_id, product_id, quantity, price)
+
+Generated API Endpoints:
+
+# Products API
+GET    /api/products                    # List all products
+GET    /api/products/{id}              # Get product details
+POST   /api/products                   # Add new product
+PUT    /api/products/{id}             # Update product
+DELETE /api/products/{id}             # Delete product
+
+# Customers API  
+GET    /api/customers                  # List customers
+GET    /api/customers/{id}            # Get customer details
+POST   /api/customers                 # Register customer
+PUT    /api/customers/{id}           # Update customer
+DELETE /api/customers/{id}          # Delete customer
+
+# Orders API
+GET    /api/orders                     # List all orders
+GET    /api/orders/{id}              # Get order details
+POST   /api/orders                   # Create new order
+PUT    /api/orders/{id}             # Update order status
+DELETE /api/orders/{id}             # Cancel order
+
+Example 2: Blog API with Authentication
+
+Database Schema:
+
+-- Users table
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    password_hash VARCHAR(255),
+    role ENUM('admin', 'author', 'reader'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Posts table
+CREATE TABLE posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(200),
+    content TEXT,
+    author_id INT,
+    status ENUM('draft', 'published'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (author_id) REFERENCES users(id)
+);
+
+Generated Features:
+✅ User Authentication - Register, login, JWT tokens
+✅ Role-based Access - Admin, Author, Reader permissions
+✅ Blog Management - CRUD operations for posts
+✅ API Documentation - Swagger UI for testing
+
+Example 3: MongoDB Collection API
+
+MongoDB Collections:
+
+// Users collection
+{
+  _id: ObjectId,
+  name: String,
+  email: String,
+  preferences: Object,
+  created_at: Date
+}
+
+// Products collection  
+{
+  _id: ObjectId,
+  name: String,
+  price: Number,
+  category: String,
+  tags: Array,
+  metadata: Object
+}
+
+Generated API:
+
+// Express.js endpoints
+GET    /api/users              // Get all users
+GET    /api/users/:id         // Get user by ID
+POST   /api/users             // Create user
+PUT    /api/users/:id        // Update user
+DELETE /api/users/:id       // Delete user
+
+GET    /api/products         // Get all products
+GET    /api/products/:id    // Get product by ID
+POST   /api/products        // Create product
+PUT    /api/products/:id   // Update product
+DELETE /api/products/:id  // Delete product
+

@@ -1,0 +1,8 @@
+frontend
+# In the frontend directory
+cd frontend
+npm start -- --ignore-ssl-errors
+
+backend
+in new terminal
+python run.py
